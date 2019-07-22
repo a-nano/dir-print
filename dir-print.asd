@@ -6,7 +6,8 @@
 	       :cl-fad)
   :components ((:module "src"
                 :components
-                ((:file "main"))))
+                ((:file "dir-print" :depends-on ("gui"))
+		 (:file "gui"))))
   :description "directory printer"
   :in-order-to ((test-op (test-op "dir-print/tests"))))
 
