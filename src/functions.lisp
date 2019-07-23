@@ -3,7 +3,8 @@
   (:use :cl)
   (:import-from :cl-fad
 		:list-directory)
-  (:export :print-directory))
+  (:export :print-directory
+	   :open-tmp))
 (in-package :dir-print.functions)
 
 (defvar *tmp*
@@ -39,3 +40,10 @@
 
 (defun print-directory (path &key (depth 1))
   (make-csv (list-directory/d path :depth depth)))
+
+(defun open-tmp ()
+  (uiop:run-program (concatenate 'string
+				 (uiop:native-namestring "C:/Windows/explorer.exe")
+				 " "
+				 (uiop:native-namestring *tmp*))
+		    :ignore-error-status t))

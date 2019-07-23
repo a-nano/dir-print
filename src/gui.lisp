@@ -3,7 +3,8 @@
   (:use :cl
 	:ltk)
   (:import-from :dir-print.functions
-		:print-directory)
+		:print-directory
+		:open-tmp)
   (:export :start-gui))
 (in-package :dir-print.gui)
 
@@ -30,6 +31,7 @@
 	   
 	   (depth-lbl (make-instance 'label :text "depth: " :master bottom-frame))
 	   (depth-box (make-instance 'spinbox :master bottom-frame :from 1 :to 10))
+	   (open-btn (make-instance 'button :text "open tmp" :width 20 :master bottom-frame))
 	   (save-btn (make-instance 'button :text "save" :width 20 :master bottom-frame))
 
 	   ;; valiable
@@ -41,8 +43,9 @@
       ;; set command
       (setf (command path-btn) (lambda () (setf (text path-ent) (choose-directory))))
       (setf (command depth-box) (lambda (event) (setf depth (parse-integer event))))
+      (setf (command open-btn) (lambda () (open-tmp)))
       (setf (command save-btn) (lambda () (print-directory (text path-ent) :depth depth)))
       
       ;; pack
       (pack (list top-frame bottom-frame) :fill :x)
-      (pack (list path-lbl path-ent path-btn depth-lbl depth-box save-btn) :side :left))))
+      (pack (list path-lbl path-ent path-btn depth-lbl depth-box open-btn save-btn) :side :left))))
