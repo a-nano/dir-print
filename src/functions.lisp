@@ -35,7 +35,7 @@
 		       :defaults *tmp*)
 		      :direction :output
 		      :if-exists :supersede
-		      :external-format :utf-8)
+		      :external-format :sjis)
     (format fp "~{~A~%~}" lst)))
 
 (defun print-directory (path &key (depth 1))
