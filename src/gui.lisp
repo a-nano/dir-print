@@ -27,12 +27,12 @@
 
 	   (path-lbl (make-instance 'label :text "path: " :master top-frame))
 	   (path-ent (make-instance 'entry :width 70 :master top-frame))
-	   (path-btn (make-instance 'button :text "open dir" :master top-frame))
+	   (path-btn (make-instance 'button :text "choose dir" :master top-frame))
 	   
 	   (depth-lbl (make-instance 'label :text "depth: " :master bottom-frame))
 	   (depth-box (make-instance 'spinbox :master bottom-frame :from 1 :to 10))
-	   (open-btn (make-instance 'button :text "open tmp" :width 20 :master bottom-frame))
 	   (save-btn (make-instance 'button :text "save" :width 20 :master bottom-frame))
+	   (open-btn (make-instance 'button :text "open tmp" :width 20 :master bottom-frame))
 
 	   ;; valiable
 	   (depth 1))
@@ -48,4 +48,4 @@
       
       ;; pack
       (pack (list top-frame bottom-frame) :fill :x)
-      (pack (list path-lbl path-ent path-btn depth-lbl depth-box open-btn save-btn) :side :left))))
+      (pack (list path-lbl path-ent path-btn depth-lbl depth-box save-btn open-btn) :side :left))))
